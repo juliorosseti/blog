@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.8.0">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="É de praxe pelo menos uma vêz no ano ter que refazer todo meu workspace para trabalhar com desenvolvimento. E um dos pontos que eu sempre acabava me b">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Júlio Rosseti">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Maneira correta/certa de instalar o Cygwin do Zero">
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="É de praxe pelo menos uma vêz no ano ter que refazer todo meu workspace para trabalhar com desenvolvimento. E um dos pontos que eu sempre acabava me b">
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="Júlio Rosseti">
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article">
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="https://rosseti.xyzheader.png">
+    
+
+        <meta name="twitter:card" content="summary_large_image">
+
+    
+
+    
+        <meta name="twitter:image" content="https://rosseti.xyzheader.png">
+    
+
+    <!-- Title -->
+    
+    <title>Maneira correta/certa de instalar o Cygwin do Zero - Júlio Rosseti</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet">
+
+    <!-- Google Analytics -->
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-109204340-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+
+
+
+    <!-- favicon -->
+    
+    <link rel="icon" href="/img/favicon.png">
+    
+
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Home</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://julio.rosseti.xyz">
+                            
+                                About
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/juliorosseti">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('header.png')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>Maneira correta/certa de instalar o Cygwin do Zero</h1>
+                    
+                    <h2 class="post-subheading">
+                        Como fazer em poucos passos uma instalação rápida e fácil do Cygwin junto com os packages.
+                    </h2>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2017-04-11
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>É de praxe pelo menos uma vêz no ano ter que refazer todo meu workspace para trabalhar com desenvolvimento. E um dos pontos que eu sempre acabava me batendo (e muito) era na instalação do CygWin, então resolvi criar esse artigo para as pessoas que possuem dificuldade ou sempre possuem problemas na instalação.</p>
+<p>O que vamos aprender nesse tutorial:</p>
+<ul>
+<li>Instalação completa do Cygwin (easy).</li>
+<li>Instalação dos packages necessários de maneira produtiva.</li>
+<li>Solução de possíveis problemas com Authentication Agent.</li>
+<li>Links simbólicos.</li>
+</ul>
+<h2 id="Instalacao-completa-do-Cygwin"><a href="#Instalacao-completa-do-Cygwin" class="headerlink" title="Instalação completa do Cygwin"></a>Instalação completa do Cygwin</h2><p>Você não vai acreditar, <em>mãns</em>, a instalação do Cygwin que vou passar é basicamente baixar o instalador (<a href="http://www.cygwin.com/setup-x86.exe" target="_blank" rel="noopener">32bit</a>/<a href="http://www.cygwin.com/setup-x86_64.exe" target="_blank" rel="noopener">64bit</a>) e então <em>next,next,next,next,next,next,next,next</em>,<strong>finish</strong>. São 8 passos de “avançar” e é isso, vualá!<br>Mas vou explicar ponto por ponto, ok?</p>
+<ol>
+<li>Introdução/Apresentação &gt; Next;</li>
+<li><strong>Install from internet</strong> &gt; Next;</li>
+<li>Root Directory: <code>c:/cygwin</code> (ou) <code>c:/cygwin64</code> &gt; <strong>All users</strong> &gt; Next;</li>
+<li>Local Package Directory: Você decide o local que ficará os packages que serão baixados, no meu caso ficou <code>C:\Users\&lt;USER&gt;\Downloads</code> &gt; Next;</li>
+<li>Select Internet Connection &gt; <strong>Direct Connection</strong> &gt; Next;</li>
+<li>Avaible Download Sites (local para baixar os packages) &gt; Escolha qualquer um, você é livre! Eu escolhi o primeiro “<strong><a href="http://cygwin.mirror.constant.com" target="_blank" rel="noopener">http://cygwin.mirror.constant.com</a></strong>“ &gt; Next;</li>
+<li>Select Packages &gt; Simplismente não mexa em nada &gt; Next;</li>
+<li>Resolving Dependencies &gt; Lista das dependencias/Packages que vão ser baixados/instalados &gt; Next;</li>
+<li>Installation Complete &gt; Finish.</li>
+</ol>
+<h2 id="Instalacao-dos-packages-necessarios-de-maneira-produtiva"><a href="#Instalacao-dos-packages-necessarios-de-maneira-produtiva" class="headerlink" title="Instalação dos packages necessários de maneira produtiva."></a>Instalação dos packages necessários de maneira produtiva.</h2><p>Na minha visão o Cygwin possui uma aparencia confusa para instalação de packages, por esse motivo no início do tutorial de instalação solicitei que não fosse mexido em nada dessas telas pois vamos instalar os mesmos através da linha de comando (dentro do próprio cygwin).<br>A instalação desses packages que vou mostrar, necessáriamente você precisa ter o instalador do Cygwin ainda no seu HD, pois será através dele que iremos realizar as instalações.</p>
+<ol>
+<li>Abra o terminal do Cygwin e vá até a pasta onde o instalador está localizado, no meu caso ainda está em “Downloads”, então irei até lá com o seguinte comando: <code>cd /cygdrive/c/Users/&lt;USER&gt;/Downloads</code>;</li>
+<li>Rode o seguinte comando: <code>./INSTALADOR.exe -q -P package1,package2,package3,package4</code>. No meu caso, o instalador é 32bit eu instalei algumas dependencias que sempre utilizo, ficando dessa maneira: <code>./setup-x86.exe -q -P curl,git,nano,unzip,util-linux,vim,wget</code>;</li>
+<li>A interface de instalação do Cygwin vai abrir e basta aguardar o mesmo fazer o trabalho sozinho.</li>
+<li>A partir daí você já consegue utilizar seus packages normalmente como git, nano ou wget! Fichinha né?</li>
+</ol>
+<h2 id="Alguns-possiveis-problemas-com-Authentication-Agent-ssh-git"><a href="#Alguns-possiveis-problemas-com-Authentication-Agent-ssh-git" class="headerlink" title="Alguns possíveis problemas com Authentication Agent (ssh/git)"></a>Alguns possíveis problemas com Authentication Agent (ssh/git)</h2><p>Caso você esteja tentando utilizar o git, vai perceber que ao tentar dar um push/pull ou até um git-add e o mesmo retornará um erro com a seguinte mensagem:<br><strong>Could not open a connection to your authentication agent</strong></p>
+<p>Para resolver, vá até seu <code>~/.bash_profile</code> e adicione essa linha no final do mesmo:</p>
+<p><script src="https://gist.github.com/juliorosseti/322162629cd161ab9e13ad4a38094250.js"></script><br>Após isso, reinicie seu cygwin OU dê um source no arquivo e estará funcionando normalmente.</p>
+<h2 id="Links-simbolicos"><a href="#Links-simbolicos" class="headerlink" title="Links simbolicos"></a>Links simbolicos</h2><p>O Cygwin cria um link simbólico para acessar seus discos locais através do <em>/cygdrive/</em>, então para acessar qualquer local disco basta ir em <em>/cygdrive/c/</em> OU <em>/cygdrive/d/</em> OU <em>/cygdrive/e/</em> e assim continua, vai que você tem umas 12 partições né, nunca se sabe.<br>Mas que tal ter uma produtividade ainda maior com seus próprios links simbólicos? Pensa ao invés de ir até sua pasta de downloads da forma natural, poder abreviar sua escrita, já pensou que louco? Ao invés de utilizar o caminho padrão <code>cd /cygdrive/c/Users/USER/Downloads</code> utilizar apenas <code>cd ~/Home/Downloads</code> ou <code>cd ~/Sites/</code> para sua pasta www|htdocs. É meu caro, você pode!</p>
+<ol>
+<li>Vá até sua pasta home do Cygwin: <code>cd ~</code>;</li>
+<li>E crie seu link simbólico: <code>ln -s /cygdrive/c/seu/destino/bacana ArquivoSimbolico</code>. </li>
+<li>No meu caso possuo dois, um para minha htdocs (do xampp) e outro para o home do meu usuário Windows.</li>
+<li><ul>
+<li><strong>htdocs</strong>: <code>ln -s /cygdrive/c/xampp/htdocs Sites</code></li>
+</ul>
+</li>
+<li><ul>
+<li><strong>Desktop</strong>: <code>ln -s /cygdrive/c/Users/&lt;USER&gt;/Desktop/ Desktop</code></li>
+</ul>
+</li>
+<li><ul>
+<li><strong>Downloads</strong>: <code>ln -s /cygdrive/c/Users/&lt;USER&gt;/Downloads/ Downloads</code></li>
+</ul>
+</li>
+<li><ul>
+<li><strong>Documents</strong>: <code>ln -s /cygdrive/c/Users/&lt;USER&gt;/Documents/ Documents</code></li>
+</ul>
+</li>
+<li>Agora caso queira acessar seu desktop independente do lugar que esteja, é só escrever <code>cd ~/Desktop</code>.</li>
+</ol>
+<h2 id="Finalizacao"><a href="#Finalizacao" class="headerlink" title="Finalização"></a>Finalização</h2><p>Bom, se você chegou até aqui e ocorreu tudo certo, fico muito feliz por ter te ajudado! Fique a vontade para deixar suas possíveis dúvidas ou só comentar um simples “UHUUUUU ME AJUDOUUUUUUUU PACANÁRIO” :).</p>
+<p>E vou ficando por aqui, cheers, câmbio desligo!</p>
+
+
+                
+                    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+                    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5c756510bc666a0a"></script>
+
+                    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+                    <div class="addthis_sharing_toolbox"></div>
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+    <hr>
+    <h3>Comentários:</h3>
+    <div id="fb-root"></div>
+    <script>
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=173549429893960";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <div class="fb-comments" data-href="https://rosseti.xyz/2017/04/11/maneira-correta-de-instalar-o-cygwin-do-zero/index.html" data-num-posts="5" data-width="100%" data-colorscheme="light"></div>
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+                        <li>
+                            <a href="https://twitter.com/juliorosseti" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/juliorosseti" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="https://linkedin.com/in/juliorosseti" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="mailto:julio@rosseti.xyz" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2019 Júlio Rosseti<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
