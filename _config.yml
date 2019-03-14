@@ -13,7 +13,7 @@ timezone: America/Sao_Paulo
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: https://rosseti.xyz
-root: /docs/
+root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 
@@ -77,6 +77,6 @@ theme: clean-blog
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type: git
-  repo: git@github.com:juliorosseti/rosseti.xyz.git
-  branch: master
+  type:
+  repo:
+  branch:
